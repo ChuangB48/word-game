@@ -3,7 +3,7 @@
 using namespace std;
 vector <pair<char,pair<int,int>>> p;
 int score=0,health=5000;
-bool last[256]={false},f=false;;
+bool last[256]={false},f=false;
 void press(){
     while(!f){
         for(int a=0;a<256;a++){
@@ -74,8 +74,7 @@ void screen(){
     if(score<0){
         score=0;
     }
-    system("cls");
-    cout << "health:" << health << '\n' << "score:" << score << '\n' << output;
+    cout << "\033[2J\033[H" << "health:" << health << '\n' << "score:" << score << '\n' << output;
     Sleep(150);
     health--;
 }
@@ -134,7 +133,7 @@ void start(){
     cout << "\n\n\n\n";
     while (true){
         if(GetAsyncKeyState(0x0D)&0x8000){
-            system("cls");
+            cout << "\033[2J\033[H";
             play();
             break;
         }
